@@ -1,0 +1,119 @@
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  overflow-x: hidden;
+  color: #000;
+    height: 100%;
+    background: url("src\assets\images\pic.jpg") no-repeat fixed center center }
+  
+    h4 {
+      font-size: 30px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .header-icon{
+      position: relative;
+      padding-top: 20px;
+    }
+    
+    .card-header {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    .errspan {
+      position: absolute;
+      padding-left: 170px;
+      padding-top: 15px;
+      height: 20px;
+      color: red;
+    }
+
+    .errspan-ctnbr {
+      position: absolute;
+      padding-left: 115px;
+      padding-top: 15px;
+      height: 20px;
+      color: red;
+    }
+
+    .errspan-email {
+      position: absolute;
+      padding-left: 275px;
+      padding-top: 15px;
+      height: 20px;
+      color: red;
+    }
+  
+  .register {
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+    overflow: hidden; 
+    max-height: 500px;
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px 50px 30px 50px; }
+    .register .card-body {
+      padding: 65px 60px 60px; }
+      @media (max-width: 1222px) {
+        .register .card-body {
+          padding: 35px 24px; } }
+    .register-description {
+      font-size: 25px;
+      color: #000;
+      font-weight: normal;
+      margin-bottom: 23px; }
+    .register form {
+      max-width: 1500px; }
+    .register .form-control {
+      border: 1px solid rgb(81, 170, 170);
+      padding: 15px 25px;
+      margin-bottom: 15px;
+      min-height: 45px;
+      max-width: 800px;
+      font-size: 18px;
+      line-height: 15;
+      font-weight: normal; }
+      .register .form-control::-webkit-input-placeholder {
+        color: #919aa3; }
+      .register .form-control::-moz-placeholder {
+        color: #919aa3; }
+      .register .form-control:-ms-input-placeholder {
+        color: #919aa3; }
+      .register .form-control::-ms-input-placeholder {
+        color: #919aa3; }
+      .register .form-control::placeholder {
+        color: #919aa3; }
+    .register .register-btn {
+      padding: 13px 20px 12px;
+      background-color: #000;
+      border-radius: 4px;
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 20px;
+      color: #fff;
+      margin-bottom: 20px;
+      margin-left: 880px;
+      max-width: 380px; }
+      .register .register-btn:hover {
+        border: 1px solid #000;
+        background-color: rgb(81, 170, 170);
+        color: #000; }
+      label {
+        font-size: 17px;
+        float: left;
+        clear: none;
+        display: block;
+        padding: 12px 0px 0px 8px;
+      }
+      .choose-file-btn{
+        float: left;
+        padding-left: 5px;
+        padding-top: 10px;
+      }
+    

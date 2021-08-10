@@ -1,0 +1,55 @@
+<div class="card gedf-card" *ngFor="let item of list;index as i">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                    <img class="rounded-circle" width="45" src="../assets/images/{{item.imagename ? item.imagename : 'defaultprofilepic.png'}}" alt="">
+                </div>
+                <div class="ml-2">
+                    <div class="h5 m-0">@ {{item.userName}}</div>
+                    <div class="h7 m-0">{{item.firstName}}&nbsp;{{item.lastName}}</div>
+                </div>
+            </div>
+            <div>
+                <div class="h7 mb-2">{{ item.tweetDate | date:'shortDate'}}<i class="fas fa-clock"></i></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            {{item.tweets}}
+        </p>
+    </div>
+    <div class="card-footer">
+        <a class="card-link response-link"><button class="btn btn-default" (click)="GetLikes(item)"><i
+                    class="fas fa-heart fa-lg"></i> </button>Like({{item.likes}})</a>
+        <a class="card-link response-link"><button class="btn btn-default" (click)="Comments(item)"
+                (click)=" isCommentClicked(i)"><i class="fas fa-comment fa-lg"></i></button>Comments</a>
+        <div *ngIf="clickedButton[i]">
+            <div class="card-body">
+                <form [formGroup]="form" align="center">
+                    <div class="form-group">
+                        <textarea class="form-control" formControlName="comment" id="message" rows="1"
+                            placeholder="New Comment"></textarea>
+                        <button type="button" class="btn btn-primary comment-button"
+                            (click)="PostComments(item)">Enter</button>
+                    </div>
+                </form>
+                <div class="card-footer">
+                    <div class="card-text row g-3" *ngFor="let comments of commentslist">
+                        <div class="profile-info col-md-1">
+                            <img class="rounded-circle profile-img"
+                                src="../assets/images/{{user.imageName ? user.imageName : 'defaultprofilepic.png'}}"
+                                alt="">
+                            <p>@{{comments.username}}&nbsp;</p>
+                            </div>
+                            <p class="col-md-9 comment-line">{{comments.comments}}</p>
+                            <div class="col-md-2">{{ comments.date | date:'shortDate'}}<i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

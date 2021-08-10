@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Template</title>
+</head>
+<body>
+  <main class="d-flex align-items-center min-vh-100 py-0 py-md-0">
+    <div class="container">
+      <div class="card login">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmitLogin()" align="center">
+          <div class="card-header">
+            <img src="..\assets\images\pic1.jpg" width=15% height=15% alt="Tweet icon">
+            <h4>Tweet - Log in</h4>
+          </div>
+          <div class="form-group">
+            <i *ngIf="(submitted && f.username.errors?.required) || (f.username.errors?.required && (f.username.dirty || f.username.touched))"
+            class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="User Id is required"></i>
+            <input type="text" formControlName="username" placeholder="UserId" class="form-control"/>
+          </div>
+          <div class="form-group mb-4">
+            <i *ngIf="(submitted && f.password.errors?.required) || (f.password.errors?.required && (f.password.dirty || f.password.touched))"
+            class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Password required"></i>
+            <i *ngIf="(submitted && f.password.errors?.pattern) || (f.password.errors?.pattern && (f.password.dirty || f.password.touched))"
+            class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Enter valid password"></i>
+            <input type="password" formControlName="password" placeholder="Password" class="form-control"/>
+          </div>
+          <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Log in">
+        </form>
+        <app-forgotpassword></app-forgotpassword>
+        <p class="login-footer-text">Don't have an account? <a routerLink="/REGISTER">Register here</a></p>
+        <nav class="login-footer-nav">
+          <a href="#!"> © 2021 Copyright:.</a>
+          <a routerLink="/HOME">TWEETAPP</a>
+        </nav>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

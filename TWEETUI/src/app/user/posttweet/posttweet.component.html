@@ -1,0 +1,16 @@
+<div class="card gedf-card">
+    <button class="btn btn-primary collapse-button" type="button" (click)="onReset()">
+        Click To Post Tweet
+    </button>
+    <div [hidden]="isCollapsed" style="width: 100%;">
+        <form [formGroup]="form" align="center">
+            <div class="form-group">
+                <img class="rounded-circle profile-img" width="70px" height="70px" src="../assets/images/{{user.imageName ? user.imageName : 'defaultprofilepic.png'}}" alt="">&nbsp;
+                <textarea class="form-control tweet-area" formControlName="tweets" id="message" rows="3"
+                    placeholder="What are you thinking?"></textarea>
+                    <button type="button" class="btn btn-primary cancel-button" data-dismiss="modal" (click)=" onReset()">Cancel</button>
+                <button type="button" class="btn btn-primary post-button" (click)="onSubmitPost()">Post</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RegistrationForm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+        <div class="container-fluid">
+            <div class="card register">
+                <form [formGroup]="userForm" (ngSubmit)="onSubmitUser()" align="center" class="row g-3">
+                    <div class="card-header col-md-12">
+                        <i class="fab fa-twitter fa-2x header-icon"></i>
+                        <h4>Tweet - Register</h4>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <i *ngIf="(submitted && f.firstname.errors?.required) || (f.firstname.errors?.required && (f.firstname.dirty || f.firstname.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="First name is required"></i>
+                        <i *ngIf="(submitted && f.firstname.errors?.pattern) || (f.firstname.errors?.pattern && (f.firstname.dirty || f.firstname.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Enter valid first name"></i>
+                        <input type="text" formControlName="firstname" placeholder="FirstName" class="form-control"/>
+                    </div>
+                    <div class="form-group mb-4 col-md-4">
+                        <i *ngIf="(submitted && f.lastname.errors?.pattern) || (f.lastname.errors?.pattern && (f.lastname.dirty || f.lastname.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Enter valid last name"></i>
+                        <input type="lastname" formControlName="lastname" placeholder="LastName" class="form-control"/>
+                    </div>
+                    <div class="form-group mb-4 col-md-4">
+                        <i *ngIf="(submitted && f.username.errors?.required) || (f.username.errors?.required && (f.username.dirty || f.username.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="User name is required"></i>
+                        <input type="text" formControlName="username" placeholder="Username" class="form-control"/>
+                    </div>
+                    <div class="form-group mb-4  col-md-3">
+                        <i *ngIf="(submitted && f.contactnumber.errors?.required) || (f.contactnumber.errors?.required && (f.contactnumber.dirty || f.contactnumber.touched))"
+                        class="fas fa-exclamation-circle errspan-ctnbr" data-toggle="tooltip" title="Contact number is required"></i>
+                        <i *ngIf="(submitted && f.contactnumber.errors?.pattern) || (f.contactnumber.errors?.pattern && (f.contactnumber.dirty || f.contactnumber.touched))"
+                        class="fas fa-exclamation-circle errspan-ctnbr" data-toggle="tooltip" title="Enter valid contact number"></i>
+                        <input type="text" formControlName="contactnumber" placeholder="ContactNumber" class="form-control"/>
+                    </div>
+                    <div class="form-group  col-md-9">
+                        <i *ngIf="(submitted && f.emailid.errors?.required) || (f.emailid.errors?.required && (f.emailid.dirty || f.emailid.touched))"
+                        class="fas fa-exclamation-circle errspan-email" data-toggle="tooltip" title="Email address is required"></i>
+                        <i *ngIf="(submitted && f.emailid.errors?.pattern) || (f.emailid.errors?.pattern && (f.emailid.dirty || f.emailid.touched))"
+                        class="fas fa-exclamation-circle errspan-email" data-toggle="tooltip" title="Enter valid email address"></i>
+                        <input class="mb-4 form-control" formControlName="emailid" type="text" placeholder="Email Address">
+                    </div>
+                    <div class="form-group mb-4  col-md-4">
+                        <i *ngIf="(submitted && f.password.errors?.required) || (f.password.errors?.required && (f.password.dirty || f.password.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Password is required"></i>
+                        <i *ngIf="(submitted && f.password.errors?.pattern) || (f.password.errors?.pattern && (f.password.dirty || f.password.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Enter valid password"></i>
+                        <input class="mb-4 form-control" formControlName="password" type="password" (keyup)="checkPrePassword(password)" #password name="password" placeholder="Enter password">
+                    </div>
+                    <div class="form-group mb-4 col-md-4">
+                        <i *ngIf="(submitted && f.confirmpassword.errors?.required) || (f.confirmpassword.errors?.required && (f.confirmpassword.dirty || f.confirmpassword.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Please confirm password"></i>
+                        <i *ngIf="(submitted && prePasswordCheck) || (prePasswordCheck && (f.confirmpassword.dirty || f.confirmpassword.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Enter password first"></i>
+                        <i *ngIf="(submitted && passwordValidation) || (passwordValidation && (f.confirmpassword.dirty || f.confirmpassword.touched))"
+                        class="fas fa-exclamation-circle errspan" data-toggle="tooltip" title="Password didn't match"></i>
+                        <input class="mb-4 form-control" formControlName="confirmpassword" type="password"
+                            (keyup)="checkPassword(password,confirmpassword)" #confirmpassword name="confirmpassword" placeholder="Enter password again">
+                    </div>
+                    <div class="form-group mb-4 col-md-4">
+                        <input type="file" class="choose-file-btn" formControlName="imagename" name="imagename" (change)="fileEvent($event)" />
+                    </div>
+                    <input name="login" id="login" class="btn btn-block register-btn mb-4 col-md-12" type="submit" value="REGISTER">
+                </form>
+            </div>
+        </div>
+    </main>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+</body>
+
+</html>
